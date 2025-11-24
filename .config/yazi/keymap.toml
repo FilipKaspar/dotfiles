@@ -1,0 +1,23 @@
+[mgr]
+prepend_keymap = [
+	{ on = "?", run = "help", desc = "Open help" },
+
+	# ------ TRASH BIN MODE ------
+	{ on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+
+	# ------ SEARCH MODE ------
+	{ on = [ "s", "a" ], run = '''shell 'ya emit reveal $(fd --hidden 0 / | fzf)' --block''', desc = "All" },
+	{ on = [ "s", "d" ], run = '''shell 'ya emit cd $(fd --hidden --type directory | fzf)' --block''', desc = "Dirs" },
+	{ on = [ "s", "f" ], run = '''shell 'ya emit reveal $(fd --hidden | fzf)' --block''', desc = "Files" },
+
+	# ------ SUDO PLUGIN ------
+	{ on = ["A", "p", "p"], run = "plugin sudo -- paste", desc = "sudo paste" },
+	{ on = ["A", "P"],      run = "plugin sudo -- paste --force", desc = "sudo paste (force)" },
+	{ on = ["A", "r"],      run = "plugin sudo -- rename", desc = "sudo rename" },
+	{ on = ["A", "p", "l"], run = "plugin sudo -- link", desc = "sudo link" },
+	{ on = ["A", "p", "r"], run = "plugin sudo -- link --relative", desc = "sudo link relative path" },
+	{ on = ["A", "p", "L"], run = "plugin sudo -- hardlink", desc = "sudo hardlink" },
+	{ on = ["A", "a"],      run = "plugin sudo -- create", desc = "sudo create" },
+	{ on = ["A", "d"],      run = "plugin sudo -- remove", desc = "sudo trash" },
+	{ on = ["A", "D"],      run = "plugin sudo -- remove --permanently", desc = "sudo delete" },
+]

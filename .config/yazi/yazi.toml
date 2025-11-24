@@ -1,0 +1,42 @@
+[plugin]
+prepend_previewers = [
+	# Archive previewer
+	{ mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/vnd.rar",         run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
+	{ mime = "application/xz",              run = "ouch" },
+	{ mime = "application/x-zstd",          run = "ouch" },
+	{ mime = "application/zstd",            run = "ouch" },
+	{ mime = "application/java-archive",    run = "ouch" },
+]
+
+# options when pressing "o" or "O"
+[opener]
+extract = [
+	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+]
+edit = [
+	{ run = 'nvim "$0"', block = true, desc = "Neovim", for = "unix" },
+    { run = 'codium "$0"', orphan = true, desc = "Codium", for = "unix" },
+]
+display_image = [
+    { run = 'gwenview "$0"', orphan = true, desc = "Gwenview", for = "unix" },
+    { run = 'pinta "$0"', orphan = true, desc = "Pinta", for = "unix" },
+]
+display_pdf = [
+    { run = 'okular "$0"', orphan = true, desc = "Okular", for = "unix" },
+]
+display_video = [
+    { run = 'vlc "$0"', orphan = true, desc = "Vlc", for = "linux"},
+]
+
+[open]
+prepend_rules = [
+    { mime = "video/*", use = "display_video" },
+    { mime = "image/*", use = "display_image" },
+    { mime = "application/pdf", use = "display_pdf" },
+]

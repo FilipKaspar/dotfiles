@@ -1,0 +1,328 @@
+{
+    "initialTimestamp": "2025-07-15T07:28:54.812Z",
+    "startOfDay": "04:00",
+    "startOfWeek": "Monday",
+    "durationDefault": 14400,
+    "landingpage": "/home",
+    "theme": "dark",
+    "newReleaseCheckData": {
+        "isEnabled": true,
+        "nextCheckTime": "2025-07-29T17:00:14.518Z",
+        "howOftenToCheck": 86400,
+        "timesChecked": 0
+    },
+    "userSatisfactionPollData": {
+        "isEnabled": false,
+        "nextPollTime": "2025-08-04T17:00:14.166Z",
+        "timesPollIsShown": 1
+    },
+    "classes": [
+        {
+            "data": {
+                "color": "#0F0",
+                "score": 10
+            },
+            "id": 0,
+            "name": [
+                "Work"
+            ],
+            "rule": {
+                "regex": "Google Docs|libreoffice|ReText",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {},
+            "id": 1,
+            "name": [
+                "Work",
+                "Programming"
+            ],
+            "rule": {
+                "regex": "GitHub|Stack Overflow|BitBucket|Gitlab|vim|nvim|kate|Ghidra|Cursor|jetbrains|Postman|Jira|Figma|ghostty",
+                "type": "regex"
+            }
+        },
+        {
+            "id": 2,
+            "name": [
+                "Work",
+                "Image"
+            ],
+            "rule": {
+                "regex": "GIMP|Inkscape|Pinta",
+                "type": "regex"
+            },
+            "data": {}
+        },
+        {
+            "id": 4,
+            "name": [
+                "Work",
+                "Audio"
+            ],
+            "rule": {
+                "regex": "Audacity",
+                "type": "regex"
+            }
+        },
+        {
+            "id": 5,
+            "name": [
+                "Work",
+                "3D"
+            ],
+            "rule": {
+                "regex": "Blender",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#F33"
+            },
+            "id": 6,
+            "name": [
+                "Media"
+            ],
+            "rule": {
+                "type": "none"
+            }
+        },
+        {
+            "data": {
+                "color": "#F80"
+            },
+            "id": 7,
+            "name": [
+                "Media",
+                "Games"
+            ],
+            "rule": {
+                "regex": "Minecraft|steam*",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#F33"
+            },
+            "id": 8,
+            "name": [
+                "Media",
+                "Video"
+            ],
+            "rule": {
+                "regex": "YouTube|VLC",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#FCC400"
+            },
+            "id": 9,
+            "name": [
+                "Media",
+                "Social Media"
+            ],
+            "rule": {
+                "ignore_case": true,
+                "regex": "reddit|Facebook|Twitter|Instagram",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#A8FC00"
+            },
+            "id": 10,
+            "name": [
+                "Media",
+                "Music"
+            ],
+            "rule": {
+                "ignore_case": true,
+                "regex": "Spotify|Deezer",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#9FF"
+            },
+            "id": 11,
+            "name": [
+                "Comms"
+            ],
+            "rule": {
+                "type": "none"
+            }
+        },
+        {
+            "data": {},
+            "id": 12,
+            "name": [
+                "Comms",
+                "IM"
+            ],
+            "rule": {
+                "regex": "Messenger|Telegram|Signal|WhatsApp|Discord|Snapchat",
+                "type": "regex"
+            }
+        },
+        {
+            "id": 13,
+            "name": [
+                "Comms",
+                "Email"
+            ],
+            "rule": {
+                "regex": "Gmail|Thunderbird|Outlook",
+                "type": "regex"
+            },
+            "data": {}
+        },
+        {
+            "data": {
+                "color": "#CCC"
+            },
+            "id": 14,
+            "name": [
+                "Uncategorized"
+            ],
+            "rule": {
+                "type": "none"
+            }
+        },
+        {
+            "data": {},
+            "id": 15,
+            "name": [
+                "Work",
+                "Comms"
+            ],
+            "rule": {
+                "regex": "teams-for-linux|Slack",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {
+                "color": "#653294"
+            },
+            "id": 16,
+            "name": [
+                "Brave"
+            ],
+            "rule": {
+                "regex": "Brave",
+                "type": "regex"
+            }
+        },
+        {
+            "data": {},
+            "id": 17,
+            "name": [
+                "Work",
+                "ActivityWatch"
+            ],
+            "rule": {
+                "regex": "ActivityWatch|aw-",
+                "type": "regex"
+            }
+        },
+        {
+            "id": 18,
+            "name": [
+                "Media",
+                "Games",
+                "New class"
+            ],
+            "rule": {
+                "regex": "FILL ME",
+                "type": "regex"
+            }
+        }
+    ],
+    "views": [
+        {
+            "id": "summary",
+            "name": "Summary",
+            "elements": [
+                {
+                    "type": "top_apps",
+                    "size": 3
+                },
+                {
+                    "type": "top_titles",
+                    "size": 3
+                },
+                {
+                    "type": "timeline_barchart",
+                    "size": 3
+                },
+                {
+                    "type": "top_categories",
+                    "size": 3
+                },
+                {
+                    "type": "category_tree",
+                    "size": 3
+                },
+                {
+                    "type": "category_sunburst",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "id": "window",
+            "name": "Window",
+            "elements": [
+                {
+                    "type": "top_apps",
+                    "size": 3
+                },
+                {
+                    "type": "top_titles",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "id": "browser",
+            "name": "Browser",
+            "elements": [
+                {
+                    "type": "top_domains",
+                    "size": 3
+                },
+                {
+                    "type": "top_urls",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "id": "editor",
+            "name": "Editor",
+            "elements": [
+                {
+                    "type": "top_editor_files",
+                    "size": 3
+                },
+                {
+                    "type": "top_editor_projects",
+                    "size": 3
+                },
+                {
+                    "type": "top_editor_languages",
+                    "size": 3
+                }
+            ]
+        }
+    ],
+    "requestTimeout": 30,
+    "always_active_pattern": "teams-for-linux|Slack"
+}
