@@ -1,0 +1,4 @@
+[filechooser]
+cmd=yazi-wrapper.sh
+env=TERMCMD='ghostty --title=termfilechooser -e'
+default_dir=$HOME
