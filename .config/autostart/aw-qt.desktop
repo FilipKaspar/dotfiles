@@ -1,0 +1,5 @@
+# Masks /etc/xdg/autostart/aw-qt.desktop (shipped by activitywatch-bin).
+# aw-qt is launched from .config/hypr/autostart.conf instead, so it can be delayed
+# until the waybar tray is up. Same pattern as omarchy's org.fcitx.Fcitx5.desktop.
+[Desktop Entry]
+Hidden=true
