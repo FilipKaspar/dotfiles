@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Hop focus between floating and tiled windows on the current workspace.
+case "$(hyprctl activewindow)" in
+  *"floating: 1"*) hyprctl dispatch focuswindow tiled ;;
+  *)               hyprctl dispatch focuswindow floating ;;
+esac

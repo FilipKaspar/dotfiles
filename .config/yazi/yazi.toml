@@ -51,3 +51,6 @@ prepend_rules = [
   { url = "*.sh", use = ["edit", "run"] },
   { url = "*.AppImage", use = "run_appimage" },
 ]
+
+[preview]
+wrap = "yes"
