@@ -24,3 +24,34 @@ gui:
     searchingActiveBorderColor:
       - "#ff9e64"
 
+customCommands:
+  - key: "r"
+    description: "Move/rename worktree"
+    context: "worktrees"
+    prompts:
+      - type: "input"
+        key: "Path"
+        title: "New worktree path:"
+        initialValue: "{{ .SelectedWorktree.Path }}"
+    command: "git worktree move {{ .SelectedWorktree.Path | quote }} {{ .Form.Path | quote }}"
+
+  - key: "U"
+    description: "Add file to personal exclude"
+    context: "files"
+    command: "echo {{ .SelectedFile.Name | quote }} >> .git/info/exclude"
+
+  - key: "E"
+    description: "Remove a file from personal exclude list"
+    context: "files"
+    prompts:
+      - type: "menuFromCommand"
+        title: "Personally excluded files"
+        key: "ExcludedFile"
+        command: "awk '!/^#/ && !/^$/' .git/info/exclude"
+        filter: "(?P<file>.+)"
+        valueFormat: "{{ .file }}"
+        labelFormat: "{{ .file }}"
+    command: >-
+      grep -vFx {{ .Form.ExcludedFile | quote }} .git/info/exclude
+      > .git/info/exclude.tmp && mv .git/info/exclude.tmp .git/info/exclude
+    loadingText: "Removing from exclude list..."

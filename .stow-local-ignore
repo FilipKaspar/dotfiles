@@ -1,5 +1,5 @@
 \.git
 \.gitignore
-battery-charge-threshold\.service
 \.link-dot\.sh
 readme\.md
+etc

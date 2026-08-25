@@ -1,0 +1,13 @@
+# Launch via omarchy-launch-tui so the ghostty window gets app-id org.omarchy.cliamp
+# Terminal=false because omarchy-launch-tui spawns the terminal itself.
+[Desktop Entry]
+Name=cliamp
+GenericName=Music Player
+Comment=A retro terminal music player inspired by Winamp 2.x
+Exec=omarchy-launch-tui cliamp
+Icon=cliamp
+Terminal=false
+Type=Application
+Categories=Audio;Music;Player;AudioVideo;ConsoleOnly;
+Keywords=music;audio;player;terminal;tui;winamp;radio;podcast;
+StartupNotify=false

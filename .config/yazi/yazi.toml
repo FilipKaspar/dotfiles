@@ -26,6 +26,7 @@ edit = [
 display_image = [
   # { run = 'gwenview %s', orphan = true, desc = "Gwenview", for = "unix" },
   { run = 'imv %s', orphan = true, desc = "Image Viewer", for = "unix" },
+  { run = 'gthumb %s', orphan = true, desc = "gThumb", for = "unix" },
   { run = 'pinta %s', orphan = true, desc = "Pinta", for = "unix" },
 ]
 display_pdf = [
