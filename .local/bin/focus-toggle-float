@@ -1,6 +1,13 @@
 #!/usr/bin/env sh
 # Hop focus between floating and tiled windows on the current workspace.
-case "$(hyprctl activewindow)" in
-  *"floating: 1"*) hyprctl dispatch focuswindow tiled ;;
-  *)               hyprctl dispatch focuswindow floating ;;
-esac
+#
+# Omarchy 4 replaced the old freeform `hyprctl dispatch <name> <arg>` protocol
+# with Lua expressions (see /usr/share/hypr/stubs/hl.meta.lua), so the toggle
+# logic lives inline here instead of a plain dispatcher name.
+hyprctl dispatch '(function()
+  local win = hl.get_active_window()
+  local want_floating = not (win and win.floating)
+  local target = hl.get_windows({ floating = want_floating, workspace = hl.get_active_workspace() })[1]
+  if not target then return hl.dsp.no_op() end
+  return hl.dsp.focus({ window = target })
+end)()'

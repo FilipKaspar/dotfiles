@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Drop-in replacement for omarchy-clipboard-paste-text that pastes with Ctrl+V.
+#
+# Omarchy synthesizes Shift+Insert, which only terminals and some GTK apps
+# honor -- browsers and Electron apps ignore it, so the paste silently no-ops
+# and the entry just sits on the clipboard.
+
+copy_only=false
+history_index=""
+text=""
+
+while (( $# > 0 )); do
+  case "$1" in
+    # Accepted and ignored: the caller passes it, but Ctrl+V is the point here.
+    --shift-insert) shift ;;
+    --copy-only) copy_only=true; shift ;;
+    --history-index) history_index="${2:-}"; shift 2 ;;
+    *) break ;;
+  esac
+done
+
+copy_history_entry() {
+  local history_path="$HOME/.local/state/omarchy/clipboard-history.json"
+
+  [[ $history_index =~ ^[0-9]+$ ]] || exit
+  jq -e --argjson index "$history_index" '.[$index].type == "text" and (.[$index].text | type == "string")' "$history_path" >/dev/null || exit
+  jq -j --argjson index "$history_index" '.[$index].text' "$history_path" | wl-copy
+}
+
+# Terminals take Shift+Insert, everything else takes Ctrl+V — same split as
+# Omarchy's universal paste (default/hypr/bindings/clipboard.lua). Mirrors
+# basecamp/omarchy#8350 so this runs what that PR proposes.
+paste_into_focused_window() {
+  if hyprctl -j activewindow 2>/dev/null | jq -e '[.tags[]? | sub("\\*$"; "")] | index("terminal")' >/dev/null; then
+    wtype -M shift -k Insert -m shift 2>/dev/null || true
+  else
+    wtype -M ctrl v -m ctrl 2>/dev/null || true
+  fi
+}
+
+if [[ -n $history_index ]]; then
+  copy_history_entry
+  paste_it=true
+else
+  text=${1:-}
+  [[ -n $text ]] || exit
+  printf '%s' "$text" | wl-copy
+  # Matching upstream: an inline string is typed out, not pasted.
+  paste_it=false
+fi
+
+[[ $copy_only == "true" ]] && exit
+
+sleep 0.15
+
+if [[ $paste_it == "true" ]]; then
+  paste_into_focused_window
+else
+  wtype "$text" 2>/dev/null || true
+fi

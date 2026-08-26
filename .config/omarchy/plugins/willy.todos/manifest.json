@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "willy.todos",
+  "name": "Todos",
+  "version": "1.0.0",
+  "author": "willy",
+  "description": "A simple todo list: add, edit, complete, and remove",
+  "kinds": [
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Todos.qml"
+  }
+}
